@@ -73,19 +73,120 @@ Acknowledgment number (raw): 258040696
 ## Soal 2
 Sebutkan web server yang digunakan pada portal praktikum Jaringan Komputer!
 
+1. Hal yang dilakukan pertama adalah melihat ip address dari portal praktikum Jaringan Komputer, yang dimana terdapat `10.21.78.111`
+
+    ![soal 2](/images/soal2/4.jpg)
+
+2. Lalu, dapat dicari dengan kueri `ip.addr == 10.21.78.111` pada wireshark, dan akan didapatkan informasi seperti dibawah ini:
+
+    ![soal 2](/images/soal2/1.jpg)
+
+3. Pada source yang memiliki nilai yang sama dengan ip address yang kita cari, kita dapat klik kanan dan pilih follow, lalu pilih TCP Stream. Ikuti langkah seperti pada gambar dibawah ini:
+
+    ![soal 2](/images/soal2/2.jpg)
+
+4. Setelah follow TCP Stream akan ditampilkan sekumpulan informasi, dan akan didapatkan informasi server yang digunakan pada portal praktikum Jaringan Komputer.
+
+    ![soal 2](/images/soal2/3.jpg)
+
+**Hasil:**
+
+```
+Server: gunicorn
+```
+
 ## Soal 3
 Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal berikut:
+
 - Berapa banyak paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702?
+
+-> Untuk mendapatkan banyaknya paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702, dapat dilihat dengan kueri `(ip.src == 239.255.255.250 || ip.dst == 239.255.255.250) && udp.port == 3702`. Lalu, akan ditampilkan sebanyak 21 packets, seperti pada gambar dibawah ini:
+
+![soal 3](/images/soal3/1.jpg)
+
+**Hasil:**
+
+```
+Displayed: 21
+```
+
 - Protokol layer transport apa yang digunakan?
+
+-> Dari filter yang sudah dilakukan diatas didapatkan pula informasi Protocol yang digunakan adalah UDP
+
+![soal 3](/images/soal3/2.jpg)
+
+**Hasil:**
+
+```
+Protocol: UDP
+```
 
 ## Soal 4
 Berapa nilai checksum yang didapat dari header pada paket nomor 130?
 
 ## Soal 5
 Elshe menemukan suatu file packet capture yang menarik. Bantulah Elshe untuk menganalisis file packet capture tersebut.
+
+1. Diberi zip file yang harus dibuka dengan password. Maka, hal pertama yang dilakukan adalah mencari password untuk membuka zip file yang diberi
+
+    ![soal 5](/images/soal5/2.jpg)
+
+2. Pada file soal5.pcap yang diberi dapat dilihat info yang mengandung `pass`, seperti pada gambar dibawah:
+
+    ![soal 5](/images/soal5/1.jpg)
+
+3. Pada packet yang dituju di klik kanan dan follow TCP Stream, seperti pada gambar dibawah:
+
+    ![soal 5](/images/soal5/3.jpg)
+
+4. Setelah follow TCP Stream, akan didapatkan informasi password seperti berikut:
+
+    ![soal 5](/images/soal5/4.jpg)
+
+5. Dengan mengikuti petunjuk yang ada, maka password yang diberikan di decode berdasarkan Base64. Dan akan di dapatkan password sesungguhnya untuk membuka zip file yang dberi sebelumnya
+
+    ![soal 5](/images/soal5/5.jpg)
+
+6. Setelah password tersebut dimasukkan, akan didapatkan file .txt yang berisi nc untuk membuka soal nomor 5.
+
+    ![soal 5](/images/soal5/6.jpg)
+
 - Berapa banyak packet yang berhasil di capture dari file pcap tersebut?
+
+-> Banyak packet yang berhasil di capture dari file pcap dapat dilihat dibawah file, seperti gambar berikut:
+
+![soal 5](/images/soal5/5-a.jpg)
+
+**Hasil:**
+
+```
+Packets: 60
+```
+
 - Port berapakah pada server yang digunakan untuk service SMTP?
+
+-> Port yang digunakan untuk service SMTP dapat dilihat pada bagian `Source Port`, dengan protocol `SMTP`
+
+![soal 5](/images/soal5/5-b.jpg)
+
+**Hasil:**
+
+```
+Source Port: 25
+```
+
 - Dari semua alamat IP yang tercapture, IP berapakah yang merupakan public IP?
+
+-> IP yang merupakan public IP dapat dilakukan dengan pengecekan IP Source berikut
+
+![soal 5](/images/soal5/5-c.jpg)
+
+**Hasil:**
+
+```
+Public IP: 74.53.140.153
+```
 
 ## Soal 6
 Seorang anak bernama Udin Berteman dengan SlameT yang merupakan seorang penggemar film detektif. sebagai teman yang baik, Ia selalu mengajak slamet untuk bermain valoranT bersama. suatu malam, terjadi sebuah hal yang tak terdUga. ketika udin mereka membuka game tersebut, laptop udin menunjukkan sebuah field text dan Sebuah kode Invalid bertuliskan "server SOURCE ADDRESS 7812 is invalid". ketika ditelusuri di google, hasil pencarian hanya menampilkan a1 e5 u21. jiwa detektif slamet pun bergejolak. bantulah udin dan slamet untuk menemukan solusi kode error tersebut.
@@ -101,3 +202,22 @@ Berikan kueri filter sehingga wireshark hanya mengambil paket yang berasal dari 
 
 ## Soal 10
 Sebutkan kredensial yang benar ketika user mencoba login menggunakan Telnet
+
+1. Filter dengan mencari `telnet`, dan akan ditampilkan packets seperti dibawah:
+
+    ![soal 10](/images/soal10/1.jpg)
+
+2. Pada packet yang paling besar nomornya dilakukan pengecekan dengan follow TCP Stream, seperti pada gambar dibawah:
+
+    ![soal 10](/images/soal10/2.jpg)
+
+3. Dan akan didapatkan informasi berikut untuk login
+
+    ![soal 10](/images/soal10/3.jpg)
+
+**Hasil:**
+
+```
+[username]:[password]
+dhafin:kesayangannyak0k0
+```
