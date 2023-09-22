@@ -1,5 +1,4 @@
 # Jarkom-Modul-1-A10-2023
-Repository for Jarkom practicum reports
 
 ## Anggota Kelompok
 
@@ -8,12 +7,68 @@ Repository for Jarkom practicum reports
 | 5025211081 | Gabriella Natasya Br Ginting|
 | 5025211102 | Adhira Riyanti Amanda       |
 
+### Daftar Isi
+- [Soal 1](#soal-1)
+- [Soal 2](#soal-2)
+- [Soal 3](#soal-3)
+- [Soal 4](#soal-4)
+- [Soal 5](#soal-5)
+- [Soal 6](#soal-6)
+- [Soal 7](#soal-7)
+- [Soal 8](#soal-8)
+- [Soal 9](#soal-9)
+- [Soal 10](#soal-10)
+
 ## Soal 1
 User melakukan berbagai aktivitas dengan menggunakan protokol FTP. Salah satunya adalah mengunggah suatu file.
+
+-> Untuk melihat aktivitas mengunggah suatu file dengan protokol FTP dapat ditemukan pada nomor yang memiliki info `STOR`, yang dimana STOR merupakan perintah yang digunakan untuk mengunggah file. Untuk menemukannya dapat dicari dengan `ftp.request.command == "STOR"`, dan terdapat pada nomor `147`.
+
+Lalu untuk mendapatkan response dari aktivitas tersebut dapat dilihat pada info yang mengandung `Response` setelah request dari nomor 147, yaitu nomor `149`.
+
 - Berapakah sequence number (raw) pada packet yang menunjukkan aktivitas tersebut? 
+
+-> Untuk mendapatkan sequence number (raw) pada packet yang menunjukkan aktivitas mengunggah suatu file dapat dilihat pada nomor `147` dan bagian `Transmission Control Protocol`. Maka, nilai `Sequence Number (raw)` akan terlihat seperti pada gambar di bawah ini:
+
+![soal 1](/images/soal1/soal1-a.jpg)
+
+**Hasil:**
+```
+Sequence Number (raw): 258040667
+```
+
 - Berapakah acknowledge number (raw) pada packet yang menunjukkan aktivitas tersebut? 
+
+-> Untuk mendapatkan nilai acknowledge number (raw) pada packet yang menunjukkan aktivitas mengunggah suatu file dapat dilihat pada nomor `147` dan bagian `Transmission Control Protocol`. Maka, nilai `acknowledge number (raw)` akan  terlihat seperti pada gambar di bawah ini:
+
+![soal 1](/images/soal1/soal1-b.jpg)
+
+**Hasil:**
+```
+Acknowledgment number (raw): 1044861039
+```
+
 - Berapakah sequence number (raw) pada packet yang menunjukkan response dari aktivitas tersebut?
+
+-> Untuk mendapatkan nilai sequence number (raw) pada packet yang menunjukkan response dari aktivitas mengunggah suatu file dapat dilihat pada nomor `149` dan bagian `Transmission Control Protocol`. Maka, nilai `sequence number (raw)` akan  terlihat seperti pada gambar di bawah ini:
+
+![soal 1](/images/soal1/soal1-c.jpg)
+
+**Hasil:**
+```
+Sequence Number (raw): 1044861039
+```
+
 - Berapakah acknowledge number (raw) pada packet yang menunjukkan response dari aktivitas tersebut?
+
+-> Untuk mendapatkan nilai acknowledge number (raw) pada packet yang menunjukkan response dari aktivitas mengunggah suatu file dapat dilihat pada nomor `149` dan bagian `Transmission Control Protocol`. Maka, nilai `acknowledge number (raw)` akan  terlihat seperti pada gambar di bawah ini:
+
+![soal 1](/images/soal1/soal1-d.jpg)
+
+**Hasil:**
+```
+Acknowledgment number (raw): 258040696
+```
 
 ## Soal 2
 Sebutkan web server yang digunakan pada portal praktikum Jaringan Komputer!
