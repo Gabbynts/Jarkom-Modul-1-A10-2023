@@ -140,3 +140,8 @@ Berikan kueri filter sehingga wireshark hanya mengambil paket yang berasal dari 
 
 ## Soal 10
 Sebutkan kredensial yang benar ketika user mencoba login menggunakan Telnet
+
+## Kendala
+
+- Salah satu anggota kelompok belum menginstall WSL di perangkatnya, sehingga pengerjaan dilakukan melalui terminal linux menggunakan VM. Kekurangan dari pengerjaan di VM adalah tidak dapat mengcopy paste, sehingga key jawaban yang harus diketik manual di platform praktikum.
+- Penggunaan VPN memperlambat pekerjaan karena tidak bisa membuka google docs untuk membuat proof of concept, sehingga membutuhkan waktu lebih untuk membuat dokumen tersebut.
